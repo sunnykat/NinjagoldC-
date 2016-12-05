@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ninja Gold</title>
+</head>
+<body style="background:black; width:99%;height:99%;margin:auto;border:3px solid cyan; border-radius:10px;padding:5px;">
+    <div class="status" style="width:99.5%; height:10%; display:block; border:3px solid cyan; border-radius:10px;">
+    <ul style="list-style:none;display:inline-block;padding-left:5px;">
+    <li><h4>Your Gold:</h4></li>
+    <div class="goldbox" style="border:1px solid lime; width:10em; text-align: center; border-radius: 5px; height:80%; background:grey; "><li>@ViewBag.gold</li></div>
+    </ul></div>
+    <div class="optionarea" style="padding:10px; width: 100%; height:120px;">
+    <div class="ninjalocations" style="width:22%; height:30%;display:inline-block; border: 1px solid orange; border-radius: 10px; background:black; text-align:center; margin-top:20px;">
+    <h3>Farm</h3>
+    <p>(earns 10 - 20 gold)</p>
+    <form action="/proccess_money" method="post">
+    <input type="hidden" name="building" value="farm">
+    <input type="submit" value="Find Gold!">
+    </form>
+    </div>
+    <div class="ninjalocations" style="width:22%; height:30%;display:inline-block; border: 1px solid orange; border-radius: 10px; background:black; text-align:center; margin-top:20px;">
+    <h3>Cave</h3>
+    <p>(earns 5 - 10 gold)</p>
+    <form action="/proccess_money" method="post">
+    <input type="hidden" name="building" value="cave">
+    <input type="submit" value="Find Gold!">
+    </form>
+    </div>
+    <div class="ninjalocations" style="width:22%; height:30%;display:inline-block; border: 1px solid orange; border-radius: 10px; background:black; text-align:center; margin-top:20px;">
+    <h3>House</h3>
+    <p>(earns 2 - 5 gold)</p>
+    <form action="/proccess_money" method="post">
+    <input type="hidden" name="building" value="house">
+    <input type="submit" value="Find Gold!">
+    </form>
+    </div>
+    <div class="ninjalocations" style="width:22%; height:30%;display:inline-block; border: 1px solid orange; border-radius: 10px; background:black; text-align:center; margin-top:20px;">
+    <h3>Casino</h3>
+    <p>(earns/takes 0 - 50 gold)</p>
+    <form action="/proccess_money" method="post">
+    <input type="hidden" name="building" value="casino">
+    <input type="submit" value="Find Gold!">
+    </form>
+    </div>
+    </div> <!--//Overall container for options-->
+    <p>Activities:</p>
+    <div id="activitylog" style="background:black; border:1px solid yellow; border-radius: 5px; border-radius:5px; width:50%; height:200px;display:inline-block; overflow:auto;">
+        <ul>
+            @Each
+            <li class=@Current.class>@Current.message</li>
+            @EndEach
+        </ul>
+</body>
+</html>
